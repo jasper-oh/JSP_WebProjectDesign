@@ -1,0 +1,39 @@
+<!-- 멘토의 기본 정보 수정 페이지 입니다. -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기본 정보 조회, 수정 페이지</title>
+</head>
+<body>
+
+
+
+
+	<form action="/MentoringProject/MentorInfoUpdate.do" method="post">
+		<c:forEach items="${mentorMyPageInfo }" var="userInfo">
+		<div class="mentorInfoBox">
+			<div class="mentorImage">
+				<img alt="멘토 이미지입니다." src="${userInfo.mentorimage }">
+			</div>
+			<div >
+				<input type="text" value="${userInfo.userpk }" hidden="true" name="userpk">
+				<input type="text" value="${userInfo.mentorpk }" hidden="true" name="mentorpk">
+			</div>
+			<div class="mentorShortInfo">
+				<span>아이디 : </span><input type="text" value="${userInfo.userid }" name="userid"><br>
+				<span>이메일 : </span><input type="text" value="${userInfo.useremail }" name="userid"><br>
+				<span>전화 번호 : </span><input type="text" value="${userInfo.userphone }" name="userid"><br>
+				<span>주소 : </span><input type="text" value="${userInfo.mentoraddress }" name="userid" size="50"><br>
+			</div>
+			<div>
+				<input type="submit" value="저장 하기">
+			</div>
+		</div>
+		</c:forEach>
+	</form>
+	
+
+
+</body>
+</html>

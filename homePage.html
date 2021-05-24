@@ -1,3 +1,9 @@
+<%@page import="com.project.mentoring.dto.AdminMajorListDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.project.mentoring.dao.AdminMajorListDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,14 +57,11 @@
             </div>
             <nav>
                 <ul>
-                    <!-- <li><a href="userBeMentorPage.jsp">마스터가 되어보세요</a></li> -->
+                    	<li><a href="userBeMentorPage.html">마스터가 되어보세요</a></li> 
                         <li><a href="helpPage.html">도움말</a></li>
-                        <li><a href="userSignUpPage.html">회원가입</a></li>
-                        <li><a href="userLoginPage.html">로그인</a></li>
-                        <!-- <li><a href="#article2">Force</a></li>
-                        <li><a href="#article4">Master</a></li>
-                        <li><a href="#article5"></a></li>
-                        <li><a href="#none">도움말</a></li> -->
+                        <li><a href="userMyPage.html">마이페이지</a></li>
+                        <li><a href="/MentoringProject/logout.do">로그아웃</a></li>
+                        
                 </ul>
             </nav>
         </div>

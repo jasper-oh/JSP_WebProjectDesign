@@ -19,10 +19,17 @@
                 $("#datepicker2").datepicker();
             });
         </script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="css/calendar.css"/>
     </head>
     <body>
     <h2>스케쥴 데이터를 입력하세요</h2>
-    <jsp:include page="customCalendar.jsp" flush="true"/>
+    <!-- 달력을 보여주는 jsp:include  이 달력을 div 로 묶어서 적당한 크기로 보여줄수 있을까요...customCalendar.html 첨부 하겠습니다..-->
+    <!-- 다시 생각해 보니 include 안하고 customCalendar.html을 여기로 불러왔습니다! -->
+    <!-- <jsp:include page="customCalendar.jsp" flush="true"/> -->
+    <div id="calendar">
+
+    </div>
      <form action="insertScheduleAction.do?productpk=<%=request.getParameter("productpk")%>" method="post">
       멘토링 가능날짜를 선택하세요
       <table>
@@ -56,5 +63,35 @@
             <td colspan="2"><input type="submit" value="입력">
        </form>
         
-    </body>
+ <script type="text/javascript" src="js/calendar.js"></script>
+    <script>
+
+        var events = [
+          {
+            'Date': new Date(2018, 5, 7),
+            'Title': 'evento 1',
+            'Link': function(){
+                      console.log(new Date(2018, 5, 7));
+                        
+                    }
+          },
+ /*         {'Date': new Date(2018, 4, 18), 'Title': 'evento 2', 'Link': 'https://garfield.com'},
+          {'Date': new Date(2018, 5, 27), 'Title': 'evento 3', 'Link':  function(){alert("le diste click a este evento");}},*/
+        ];
+var settings = {
+  Color: '',
+  LinkColor: '',
+  NavShow: true,
+  NavVertical: false,
+  NavLocation: '',
+  DateTimeFormat: 'mmm, yyyy',
+  DatetimeLocation: '',
+  EventTargetWholeDay: true,
+  DisabledDays: []
+};
+
+var element = document.getElementById('calendar');
+caleandar(element, events, settings);
+    </script>
+  </body>
 </html>

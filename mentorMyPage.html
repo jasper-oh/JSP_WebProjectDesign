@@ -20,13 +20,61 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="/MentoringProject/mentorInfoUpdatePage.do">기본 정보수정</a></li>
-                    <li><a href="/MentoringProject/mentorProductList.do">포스 관리</a></li>
-                    <li><a href="/MentoringProject/mentorScheduledList.do">예약관리</a></li>
-                   	<li> <a href="정산관리.jsp">정산 관리</a></li>
-					<li><a href="리뷰보기.jsp">리뷰 보기</a></li>
+                    <li><a href="mentorProductList.html">포스 관리</a></li>
+                    <li><a href="mentorScheduleList.html">예약관리</a></li>
+                   	<li> <a href="mentorPayRecieveList.html">정산 관리</a></li>
+					<li><a href="mentorReviewView.html">리뷰 보기</a></li>
                 </ul>
             </div>
         </nav>
+    <!-- 프로파일 좌측에 짧은 슬로건 -->
+    <div class="slogan">I'm your father</div>
+    <!-- 절대 공백으로 두면 안됨 !!! 공백 처리 해줄것 !!!  -->
+    <!-- 멘토의  프로파일 보여줌-->
+	<form action="/MentoringProject/mentorInfoUpdate.do" method="post" enctype="multipart/form-data">
+		<c:forEach items="${mentorMyPageInfo }" var="userInfo">
+		<div class="mentorInfoBox">
+			<div class="mentorImage">
+				<img alt="멘토 이미지입니다." src="${userInfo.mentorimage }"><br>
+				<span>바꿀 이미지</span><div id="image_container"></div>
+				<input type="file" name="mentorimage" id="image" accept="image/*" onchange="setThumbnail(event);">
+			</div>
+			<div >
+				<input type="text" value="${userInfo.userpk }" hidden="true" name="userpk">
+				<input type="text" value="${userInfo.mentorpk }" hidden="true" name="mentorpk">
+			</div>
+			<div class="mentorShortInfo">
+				<span>아이디 : </span><input type="text" value="${userInfo.userid }" name="userid" ><br>
+				<span>이메일 : </span><input type="email" value="${userInfo.useremail }" name="useremail"><br>
+				<span>전화 번호 : </span><input type="text" value="${userInfo.userphone }" name="userphone"><br>
+				<span>주소 : </span><input type="text" value="${userInfo.mentoraddress }" id="address" name="mentoraddress" size="50"><br>
+				<input type="button" onClick="goPopup();" value="주소 검색"/>
+			</div>
+			<div>
+				<input type="submit" value="저장 하기">
+			</div>
+		</div>
+		</c:forEach>
+	</form>
+    <!-- footer 시작 -->
+	<footer id="footer">
+        <div class="row">
+            <p>
+                <a href="#none">회사소개</a>
+                <a href="#none">사업분야</a>
+                <a href="#none">갤러리</a>
+                <a href="#none">온라인문의</a>
+                <a href="#none">고객센터</a>
+            </p>
+            <p><span>주소 : 부산광역시 해운대구 좌동 273-10</span> <span class="hide"> / </span> <span>상호 : 디자인선사인</span> <span
+                    class="hide"> / </span>사업자등록번호 : 123-456-7890<br>
+                <a href="tel:070-7155-19749">Tel : 070-7155-19749</a> <span class="hide"> / </span><span>Fax :
+                    02-2139-1142</span> <span class="hide"> / </span><a href="mailto:gijung23@nate.com">E-mail :
+                    gijung23@nate.com</a></p>
+            <p>Copyright &copy; Sunsine.com All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div class="gotop"><a href="#"><i class="fas fa-angle-up"></i><br><span>top</span></a></div>
+    
 </body>
 </html>
